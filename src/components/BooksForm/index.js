@@ -11,12 +11,12 @@ const BooksForm = () => {
     'Sci-Fi',
   ];
   return (
-    <form onSubmit={'do it later'}>
+    <form onSubmit="do it later">
       <label htmlFor="title">Title</label>
-      <input type="text" id="title" onChange={'sjdk'} />
+      <input type="text" id="title" onChange="sjdk" />
       <label htmlFor="categories">Category</label>
       <select name="categories" id="categories">
-        {categories.map((category) => (
+        {categories.map(category => (
           <option value={category}>{category}</option>
         ))}
       </select>
