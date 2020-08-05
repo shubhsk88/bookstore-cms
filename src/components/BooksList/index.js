@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import Book from '../Book';
 
 function BooksList({ books }) {
@@ -21,6 +22,11 @@ function BooksList({ books }) {
     </table>
   );
 }
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 const mapStateToProps = state => ({
   books: state.books,
 });
