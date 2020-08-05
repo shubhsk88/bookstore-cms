@@ -1,8 +1,9 @@
 import React from 'react';
 import Book from '../Book';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-function BooksList() {
-  const books = [{ id: 1, title: 'hey', category: 'wow' }, { id: 2, title: 'wasd', category: 'ieaue' }];
+function BooksList({ books }) {
   return (
     <table>
       <thead>
@@ -12,16 +13,18 @@ function BooksList() {
           <th>Category</th>
         </tr>
       </thead>
-      {books.map(book => (
-        <Book
-          key={book.id}
-          id={book.id}
-          title={book.title}
-          category={book.category}
-        />
-      ))}
+      <tbody>
+        {books.map((book) => (
+          <Book key={book.id} book={book} />
+        ))}
+      </tbody>
     </table>
   );
 }
-
-export default BooksList;
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+const mapDispatchToProps = (dispatch) => {
+  bindActionCreators({ createBook, removeBook }, dispatch);
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
