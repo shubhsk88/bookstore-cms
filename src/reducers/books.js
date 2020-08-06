@@ -6,9 +6,10 @@ const initialState = [
 ];
 
 const remove = (book, state) => {
-  const index = state.findIndex((lookBook) => lookBook.id === book.id);
-  state.splice(index, 1);
-  return state;
+  const index = state.findIndex(lookBook => lookBook.id === book.id);
+  const newState = [...state];
+  newState.splice(index, 1);
+  return newState;
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -18,7 +19,7 @@ const booksReducer = (state = initialState, action) => {
     case CREATE_BOOK:
       return [...state, book];
     case REMOVE_BOOK:
-      return remove(book, state);
+      return [...remove(book, state)];
 
     default:
       return state;

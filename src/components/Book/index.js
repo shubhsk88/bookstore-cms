@@ -10,7 +10,9 @@ const Book = ({ book, handleRemoveBook }) => {
       <td>{title}</td>
       <td>{category}</td>
       <td>
-        <button onClick={() => handleRemoveBook(book)}>Remove Book</button>
+        <button type="button" onClick={() => handleRemoveBook(book)}>
+          Remove Book
+        </button>
       </td>
     </tr>
   );
@@ -22,6 +24,7 @@ Book.propTypes = {
     category: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
+  handleRemoveBook: PropTypes.func.isRequired,
 };
 
 export default Book;
