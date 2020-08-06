@@ -6,9 +6,11 @@ const initialState = [
 ];
 
 const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { bookUpload, type } = action;
+
+  switch (type) {
     case CREATE_BOOK:
-      return state;
+      return [...state, bookUpload];
     default:
       return state;
   }
