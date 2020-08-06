@@ -19,7 +19,7 @@ class BooksForm extends React.Component {
 
     this.state = {
       title: '',
-      category: '',
+      category: this.categories[0],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,14 +41,14 @@ class BooksForm extends React.Component {
     const id = Math.floor(Math.random() * 100);
     if (title === '') return;
     e.preventDefault();
-    createBook({ title, category, id });
+    createBook({ id, title, category });
     this.setState({
       title: '',
     });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, category } = this.state;
     return (
       <form action="post">
         <label htmlFor="title">
@@ -58,7 +58,7 @@ class BooksForm extends React.Component {
 
         <label htmlFor="categories">
           Category
-          <select onChange={this.handleChange} name="categories" id="categories">
+          <select onChange={this.handleChange} value={category} name="categories" id="categories">
             {this.categories.map(category => (
               <option key={category} value={category}>
                 {category}
