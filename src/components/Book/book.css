@@ -53,17 +53,12 @@
 
 .percentage-container {
   display: flex;
+  align-items: center;
 }
-.oval {
-  width: 68px;
-  height: 68px;
-  background-color: blue;
-  border: 10px solid yellow;
-  border-radius: 10% / 40%;
-}
+
 .percentage {
   display: flex;
-  margin-left: 3rem;
+  margin-left: 1rem;
   flex-direction: column;
 }
 
