@@ -52,7 +52,7 @@ class BooksForm extends React.Component {
     const { title, category } = this.state;
     return (
       <div className="book-form">
-        <div className="line"></div>
+        <div className="line" />
         <span className="form-title mont">ADD NEW BOOK</span>
         <form action="post" className="form-container">
           <input
@@ -77,7 +77,7 @@ class BooksForm extends React.Component {
             <option value="" disabled>
               Category
             </option>
-            {this.categories.map((category) => (
+            {this.categories.map(category => (
               <option key={category} value={category}>
                 {category}
               </option>
@@ -97,13 +97,12 @@ class BooksForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   title: state.title,
   category: state.category,
 });
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createBook }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ createBook }, dispatch);
 
 BooksForm.propTypes = {
   createBook: PropTypes.func.isRequired,
