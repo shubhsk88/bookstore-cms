@@ -30,7 +30,7 @@ BooksList.propTypes = {
 const mapStateToProps = state => ({
   books: state.books,
 });
-const mapDispatchToProps = dispatch => {
-  bindActionCreators({}, dispatch);
-};
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({}, dispatch)
+);
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
