@@ -51,36 +51,59 @@ class BooksForm extends React.Component {
   render() {
     const { title, category } = this.state;
     return (
-      <div>
-        <hr />
+      <div className="book-form">
+        <div className="line"></div>
         <span className="form-title mont">ADD NEW BOOK</span>
         <form action="post" className="form-container">
-          <input type="text" value={title} className="form-title-input form-input mont" onChange={this.handleChange} placeholder="Book Title" id="title" required />
+          <input
+            type="text"
+            value={title}
+            className="form-title-input form-input mont"
+            onChange={this.handleChange}
+            placeholder="Book Title"
+            id="title"
+            required
+          />
 
-          <select onChange={this.handleChange} className="form-category-input form-input mont" value={category} placeholder="Category" name="categories" id="categories" required>
-            <option value="" disabled >Category</option>
-            {this.categories.map(category => (
+          <select
+            onChange={this.handleChange}
+            className="form-category-input form-input mont"
+            value={category}
+            placeholder="Category"
+            name="categories"
+            id="categories"
+            required
+          >
+            <option value="" disabled>
+              Category
+            </option>
+            {this.categories.map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
             ))}
           </select>
 
-          <button type="submit" className="form-submit-btn" onClick={this.handleSubmit}>ADD BOOK</button>
+          <button
+            type="submit"
+            className="form-submit-btn"
+            onClick={this.handleSubmit}
+          >
+            ADD BOOK
+          </button>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   title: state.title,
   category: state.category,
 });
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators({ createBook }, dispatch)
-);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ createBook }, dispatch);
 
 BooksForm.propTypes = {
   createBook: PropTypes.func.isRequired,

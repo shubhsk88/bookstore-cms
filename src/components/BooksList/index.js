@@ -21,7 +21,7 @@ function BooksList({ books, removeBook, changeFilter, filter }) {
   };
 
   return (
-    <>
+    <div className="list-container">
       <header className="mont">
         <div className="header-title ">Bookstore CMS</div>
         <button type="button" className="book-tag ">
@@ -34,11 +34,12 @@ function BooksList({ books, removeBook, changeFilter, filter }) {
           <FaUserAlt />
         </div>
       </header>
-
-      {checkfilter(filter, books).map((book) => (
-        <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-      ))}
-    </>
+      <div className="booklist">
+        {checkfilter(filter, books).map((book) => (
+          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+        ))}
+      </div>
+    </div>
   );
 }
 

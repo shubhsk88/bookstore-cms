@@ -1,5 +1,6 @@
 .form-title {
   display: block;
+  width: 1200px;
   font-size: 20px;
   font-weight: bold;
   color: #888;
@@ -7,7 +8,7 @@
 }
 
 .form-container {
-  max-width: 1200px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
 }
@@ -29,18 +30,12 @@
   height: 45px;
   color: #c4c4c4;
   appearance: none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, #c4c4c4 50%),
+  background-image: linear-gradient(45deg, transparent 50%, #c4c4c4 50%),
     linear-gradient(135deg, #c4c4c4 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
 }
 
@@ -57,4 +52,15 @@
 
 .form-submit-btn:hover {
   opacity: 0.6;
+}
+.book-form {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.line {
+  width: 120rem;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
