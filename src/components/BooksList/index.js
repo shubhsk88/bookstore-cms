@@ -22,26 +22,22 @@ function BooksList({ books, removeBook, changeFilter, filter }) {
 
   return (
     <>
-      <header>
-        <div className="header-title mont">Bookstore CMS</div>
-        <button type="button"> Books</button>
+      <header className="mont">
+        <div className="header-title ">Bookstore CMS</div>
+        <button type="button" className="book-tag ">
+          {' '}
+          Books
+        </button>
+        <span>Category: </span>
         <CategoryFilter handleFilterChange={handleFilterChange} />
-        <div>
+        <div className="profile">
           <FaUserAlt />
         </div>
       </header>
 
-      <table>
-        <tbody>
-          {checkfilter(filter, books).map((book) => (
-            <Book
-              key={book.id}
-              book={book}
-              handleRemoveBook={handleRemoveBook}
-            />
-          ))}
-        </tbody>
-      </table>
+      {checkfilter(filter, books).map((book) => (
+        <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+      ))}
     </>
   );
 }

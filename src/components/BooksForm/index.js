@@ -58,7 +58,7 @@ class BooksForm extends React.Component {
           <input type="text" value={title} className="form-title-input form-input mont" onChange={this.handleChange} placeholder="Book Title" id="title" required />
 
           <select onChange={this.handleChange} className="form-category-input form-input mont" value={category} placeholder="Category" name="categories" id="categories" required>
-            <option value="" disabled selected>Category</option>
+            <option value="" disabled >Category</option>
             {this.categories.map(category => (
               <option key={category} value={category}>
                 {category}

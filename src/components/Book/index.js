@@ -14,7 +14,9 @@ const Book = ({ book, handleRemoveBook }) => {
         <div className="book-title">{title}</div>
         <div className="author">Suzanne Collins</div>
         <div className="book-action">
-          <button type="button" className="action">Comments</button>
+          <button type="button" className="action">
+            Comments
+          </button>
           <button
             type="button"
             onClick={() => handleRemoveBook(book)}
@@ -22,7 +24,9 @@ const Book = ({ book, handleRemoveBook }) => {
           >
             Remove
           </button>
-          <button type="button" className="action">Edit</button>
+          <button type="button" className="action">
+            Edit
+          </button>
         </div>
       </div>
       <div className="percentage-container">

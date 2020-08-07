@@ -3,6 +3,7 @@ header {
   display: flex;
   height: 75px;
   margin: 0 auto;
+
   padding: 0 100px;
   align-items: center;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
@@ -13,4 +14,23 @@ header {
   color: #0290ff;
   padding: 0 2rem;
 }
-
+span {
+  margin-right: 1rem;
+  text-transform: uppercase;
+  opacity:0.5;
+}
+.book-tag {
+  margin: 0 5rem;
+  outline: none;
+  text-transform: uppercase;
+}
+.book-tag:focus {
+  outline: none;
+}
+.profile {
+  padding: 1em;
+  color: #0290ff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  margin-left: auto;
+}
