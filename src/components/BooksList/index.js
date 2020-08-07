@@ -5,30 +5,36 @@ import PropTypes from 'prop-types';
 import Book from '../Book';
 import { removeBook, changeFilter } from '../../actions';
 import CategoryFilter from '../CategoryFilter';
-
-function BooksList({
-  books, removeBook, changeFilter, filter,
-}) {
-  const handleRemoveBook = book => {
+import './booklist.css';
+import { FaUserAlt } from 'react-icons/fa';
+function BooksList({ books, removeBook, changeFilter, filter }) {
+  const handleRemoveBook = (book) => {
     removeBook(book);
   };
 
-  const handleFilterChange = filter => {
+  const handleFilterChange = (filter) => {
     changeFilter(filter);
   };
   const checkfilter = (filter, books) => {
     if (filter === 'All') return books;
-    return books.filter(book => book.category === filter);
+    return books.filter((book) => book.category === filter);
   };
 
   return (
     <>
-      <CategoryFilter handleFilterChange={handleFilterChange} />
+      <header>
+        <div className="header-title mont">Bookstore CMS</div>
+        <button type="button"> Books</button>
+        <CategoryFilter handleFilterChange={handleFilterChange} />
+        <div>
+          <FaUserAlt />
+        </div>
+      </header>
+
       <table>
         <tbody>
-          {checkfilter(filter, books).map(book => (
+          {checkfilter(filter, books).map((book) => (
             <Book
-
               key={book.id}
               book={book}
               handleRemoveBook={handleRemoveBook}
@@ -47,9 +53,10 @@ BooksList.propTypes = {
   filter: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   books: state.books,
   filter: state.filter,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({ removeBook, changeFilter }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ removeBook, changeFilter }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);

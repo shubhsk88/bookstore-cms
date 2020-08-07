@@ -5,10 +5,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  display: flex;
+
   box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
   height: 100vh;
   font-size: 1.4rem;
   font-family: 'Roboto Slab', serif;

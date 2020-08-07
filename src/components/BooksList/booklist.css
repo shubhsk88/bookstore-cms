@@ -1,0 +1,16 @@
+header {
+  width: 1400px;
+  display: flex;
+  height: 75px;
+  margin: 0 auto;
+  padding: 0 100px;
+  align-items: center;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+}
+.header-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0290ff;
+  padding: 0 2rem;
+}
+
