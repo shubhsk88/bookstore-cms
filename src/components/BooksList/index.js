@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FaUserAlt } from 'react-icons/fa';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Book from '../Book';
 import { removeBook, changeFilter } from '../../actions';
 import CategoryFilter from '../CategoryFilter';
+import './booklist.css';
 
 function BooksList({
   books, removeBook, changeFilter, filter,
@@ -22,27 +24,25 @@ function BooksList({
   };
 
   return (
-    <>
-      <CategoryFilter handleFilterChange={handleFilterChange} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {checkfilter(filter, books).map(book => (
-            <Book
-              key={book.id}
-              book={book}
-              handleRemoveBook={handleRemoveBook}
-            />
-          ))}
-        </tbody>
-      </table>
-    </>
+    <div className="list-container">
+      <header className="mont">
+        <div className="header-title ">Bookstore CMS</div>
+        <button type="button" className="book-tag ">
+          {' '}
+          Books
+        </button>
+        <span>Category: </span>
+        <CategoryFilter handleFilterChange={handleFilterChange} />
+        <div className="profile">
+          <FaUserAlt />
+        </div>
+      </header>
+      <div className="booklist">
+        {checkfilter(filter, books).map(book => (
+          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+        ))}
+      </div>
+    </div>
   );
 }
 
